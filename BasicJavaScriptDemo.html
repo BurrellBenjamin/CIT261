@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Basic JavaScript Demonstration</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="main.js"></script>
+        <div id="header">
+            <p><a href="index.html">Home</a></p>
+            <h1>Basic JavaScript Demonstration</h1>
+            <br>
+            <p>Each of these sections demonstrates a different fundamental aspect 
+                of JavaScript through use of JavaScript functions that activate 
+                on a button press. The while loop code makes use of array parsing,
+                and the conditional statements make use of parameters passing.
+            </p>
+        </div>
+        <hr>
+        <div>
+            <h3>Loops</h3>
+            <p>A 'For' Loop is useful when a loop needs to execute a fixed 
+                number of times. This loop will count from 0 to 10.
+            </p>
+            <button type="button" onclick="forCount()">Count to 10</button>
+            <div id = "for"></div>
+            <br>
+            <p>A 'While' Loop is useful when a loop needs to execute until a 
+                specific condition is met. This loop will list the four stages 
+                of the Pokemon Bulbasaur's evolutionary line.
+            </p>
+            <button type="button" onclick="whileParse()">Bulbasaur Evo Line</button>
+            <div id="while"></div>
+            <br>
+        </div>
+        <hr>
+        <div>
+            <h3>Conditional Statements</h3>
+            <p>If-Else blocks are a traditional form of conditional statements.
+                This if-else block asks an age-old video game question: Are you
+                a boy or a girl?
+            </p>
+            <h4>Are you a boy or a girl?</h4>
+            <form id="GenderForm">
+                <input type="radio" name="Gender" id="boy" value="Boy" onclick="displayGender(this)">Boy<br>
+                <input type="radio" name="Gender" id="girl" value="Girl" onclick="displayGender(this)">Girl<br>
+            </form>
+            <br>
+            <div id="Gender"></div>
+            <br>
+            <p>Switch statements allow for an infinite number of options 
+                without needing to mind the logical spaghetti of nested if-else
+                blocks
+            </p>
+            <button type="button" onclick="clearText(1)">Clear For loop text</button><br>
+            <button type="button" onclick="clearText(2)">Clear While loop text</button><br>
+            <button type="button" onclick="clearText(3)">Clear If/Else text</button><br>
+            <button type="button" onclick="clearText(4)">Clear All</button>
+        </div>
+        <hr>
+        <div id="footer">
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </body>
+</html>

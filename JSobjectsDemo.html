@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Object Demonstrations</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="main.js"></script>
+        <div id="header">
+            <p><a href="index.html">Home</a></p>
+            <h1>JavaScript Object Demonstrations</h1>
+            <br>
+            <p>Each of these sections displays one part of the functionality
+            of JavaScript objects.</p>
+        </div>
+        <hr>
+        <div id="Object Creation Functions">
+            <h3>Object Creation Functions</h3>
+            <p>Javascript Objects can be created from constructors. This sets up 
+                an object with static properties and method names which cannot be
+                changed without changing the constructor function, except by using
+                the prototype property. Enter in property values below and click 
+                the "Create Pokemon" button to create a Pokemon object with those values.
+            </p>
+            <form id="ObjectForm">
+                <pre>Species Name:  <input type="text" id="Species">
+Nickname:      <input type="text" id="Nick">
+First Typing:  <input type="text" id="Type1">
+Second Typing: <input type="text" id="Type2">
+Ability:       <input type="text" id="Ability">
+                     </pre>
+                <button type="button" onclick="createPokemon()">Create Pokemon</button>
+            </form>
+            <div id="Pokemon Display"></div>
+        </div>
+        <hr>
+        <div id="Properties">
+            <h3>Properties</h3>
+        </div>
+        <hr>
+        <div id="Methods">
+            <h3>Methods</h3>
+        </div>
+        <hr>
+        <div id="Inheritance">
+            <h3>Inheritance</h3>
+            <p>In JavaScript through use of the prototype property, and other 
+            functionality, it is possible to set up a JavaScript object that inherits 
+            from another object type.</p>
+            <p></p>
+            <form id="inheritanceForm">
+                <button type="button" onclick="PokemonInheritance()">Demonstrate Inheritance</button>
+            </form>
+            <div id="inheritanceDisplay"></div>
+        </div>
+        <hr>
+        <div id="footer">
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </body>
+</html>
