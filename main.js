@@ -63,7 +63,7 @@ function MyPokemon(species, nick, type1, type2, ability){
     this.ability = ability;
     this.display = function() {
         var text = "";
-        for (x in this)
+        for (var x in this)
             {
                     if(x != "display")
                         text+= x + ": " + this[x] + "<br>";
@@ -74,4 +74,57 @@ function MyPokemon(species, nick, type1, type2, ability){
 function createPokemon(){
     var myPokemon = new MyPokemon(document.getElementById("Species").value, document.getElementById("Nick").value, document.getElementById("Type1").value, document.getElementById("Type2").value, document.getElementById("Ability").value);
     myPokemon.display();
+}
+function AttackPokemon(species, nick, type1, type2, ability, attack1, attack2, attack3, attack4){
+    MyPokemon.call(this, species, nick, type1, type2, ability);
+    
+    this.attack1 = attack1;
+    this.attack2 = attack2;
+    this.attack3 = attack3;
+    this.attack4 = attack4;
+    this.prototype = Object.create(MyPokemon.prototype);
+    this.prototype.constructor = AttackPokemon;
+    this.display = function() {
+        var text = "";
+        text+="Species: "+this.species + "<br>";
+        text+="Nickname: "+this.nick + "<br>";
+        text+="Type 1: "+this.type1 + "<br>";
+        text+="Type 2: "+this.type2 + "<br>";
+        text+="Ability: "+this.ability + "<br>";
+        text+="<pre>";
+        for(var i = 1; i<5; i++)
+        {
+            var propertyName = "attack"+i;
+            if(i%2 == 1)
+                text+=" " + this[propertyName] + "      ";
+            else
+                text+=this[propertyName] + "</pre><pre>";
+        }
+        text+="</pre>";
+        document.getElementById("inheritanceDisplay").innerHTML=text; 
+    };
+    /*this.displayAttacks = function() {
+        var text = "";
+        //for(x in this)
+        //    {
+                //if(x=!"displayAttacks" && x!="attack1" && x!="attack2" && x!="attack3" && x!="attack4")
+                    text+=this.prototype.species;
+        //    }
+        text+="<br><pre>";
+        for(var i = 1; i<5; i++)
+        {
+            var propertyName = "attack"+i;
+            if(i%2 == 1)
+                text+=" " + this[propertyName] + "      ";
+            else
+                text+=this[propertyName] + "</pre><pre>";
+        }
+        text+="</pre>";
+        document.getElementById("inheritanceDisplay").innerHTML=text;
+    };*/
+}
+function PokemonInheritance(){
+    var myPokemon = new AttackPokemon(document.getElementById("SpeciesI").value, document.getElementById("Nickname").value, document.getElementById("Type 1").value, document.getElementById("Type 2").value, document.getElementById("AbilityI").value, document.getElementById("Attack 1").value, document.getElementById("Attack 2").value, document.getElementById("Attack 3").value, document.getElementById("Attack 4").value);
+    myPokemon.display();
+    
 }
