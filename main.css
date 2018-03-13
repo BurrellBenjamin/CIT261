@@ -6,3 +6,10 @@ a {
     color:#6699ff;
 }
 
+#ParseButton{
+    visibility: hidden;
+}
+
+.navButtons{
+    visibility:hidden;
+}

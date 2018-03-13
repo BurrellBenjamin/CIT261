@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JSON and AJAX Demo</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <script type="text/javascript" src="main.js"></script>
+        <div id="header">
+            <p><a href="index.html">Home</a></p>
+            <h1>JSON and AJAX Demonstration</h1>
+            <br>
+            <p>This page demonstrates the JSON stringify and parse functions. 
+            It also demonstrates basic AJAX functionality.</p>
+        </div>
+        <hr>
+        <div id="JSON-Stringify">
+            <h3>JSON-Stringify and Parse</h3>
+            <p>The JSON Stringify function converts a JavaScript object into a 
+            string form to make it transmittable across the internet.</p>
+            <p>This demonstration will require you to enter data for a Pokemon 
+            Object. The property data will then be run through the JSON.stringify 
+            function, and outputted to the screen.</p>
+            <form id="stringForm">
+                <pre>Species Name:  <input type="text" id="SpeciesS">
+Nickname:      <input type="text" id="NickS">
+First Typing:  <input type="text" id="Type1S">
+Second Typing: <input type="text" id="Type2S">
+Ability:       <input type="text" id="AbilityS">
+Held Item:     <input type="text" id="ItemS">
+Nature:        <input type="text" id="NatureS">
+EV's:
+           HP- <input type="number" id="HPS" value="0">
+       Attack- <input type="number" id="AtkS" value="0">
+      Defense- <input type="number" id="DefS" value="0">
+   Sp. Attack- <input type="number" id="SpAtkS" value="0">
+  Sp. Defense- <input type="number" id="SpDefS" value="0">
+        Speed- <input type="number" id="SpeedS" value="0">
+Attacks:
+            1- <input type="text" id="Attack1S">
+            2- <input type="text" id="Attack2S">
+            3- <input type="text" id="Attack3S">
+            4- <input type="text" id="Attack4S">
+                </pre>
+            </form>
+            <button type="button" onclick="PokeString()">Generate a PokeString</button>
+            <div id="PokeStringOut"></div>
+            <br>
+            <p>The JSON Parse function is the inverse of Stringify. It takes a stringified
+            JavaScript Object and reformats it into the normal Javascript object
+            format.</p>
+            <p>This demonstration uses the stringified object from the last
+            demonstration (i.e.-you have to complete that demonstration first)
+            and parses it back into standard JSON format. The button to activate
+            this demonstration will not show up until the stringify demonstration
+            has been run.</p>
+            <button type="button" id="ParseButton" onclick="PokeParse()">Parse the PokeString</button>
+            <div id="PokeParseOut"></div>
+        </div>
+        <hr>
+        <div id="AJAX">
+            <h3>AJAX</h3>
+            <p>AJAX stands for Asynchronous Javascript And XML. It is a way to
+            update a webpage while it is still loaded, and to request JSON. </p>
+            <p>This demo navigates an XML tree that holds information about various
+            Pokemon</p>
+            <button type="button" onclick="loadDoc()" id="loadbutton">Open the Pokedex</button>
+            <div id="pokeDisplay"></div><br>
+            <input type="button" onclick="previous()" class="navButtons" value="<-- Previous">
+            <input type="button" onclick="next()" class="navButtons" value="Next -->"
+        </div>
+        <hr>
+        <div id="footer">
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </body>
+</html>

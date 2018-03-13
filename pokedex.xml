@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pokedex>
+    <entry>
+        <species>Rowlet</species>
+        <type>Grass/Flying</type>
+        <weight>3.3</weight>
+        <height>0.3</height>
+        <description>It feels relaxed in tight dark places and has been known to use its Trainer's pocket or bag as a nest.</description>
+    </entry>
+    <entry>
+        <species>Dartrix</species>
+        <type>Grass/Flying</type>
+        <weight>16.0</weight>
+        <height>0.7</height>
+        <description>It throws sharp feathers called blade quills at enemies or prey. It seldom misses.</description>
+    </entry>
+    <entry>
+        <species>Decidueye</species>
+        <type>Grass/Ghost</type>
+        <weight>36.6</weight>
+        <height>1.6</height>
+        <description>Decidueye can nock and fire an arrow at an enemy in a tenth of a second, so its battles are decided in the blink of an eye.</description>
+    </entry>
+    <entry>
+		<species>Stufful</species>
+		<type>Normal/Fighting</type>
+		<weight>6.8</weight>
+		<height>0.5</height>
+		<description>Despite its adorable appearance, when it gets angry and flails about, its arms and legs could knock a pro wrestler sprawling.</description>
+	</entry>
+    <entry>
+        <species>Bewear</species>
+        <type>Normal/Fighting</type>
+        <weight>135.0</weight>
+        <height>2.1</height>
+        <description>This Pokémon has the habit of hugging its companions. Many Trainers have left this world after their spines were squashed by its hug.</description>
+    </entry>
+    <entry>
+		<species>Pichu</species>
+		<type>Electric</type>
+		<weight>2.0</weight>
+		<height>0.3</height>
+		<description>It has electric sacs in its cheeks. When they're fully charged, Pichu plays very energetically.</description>
+	</entry>
+    <entry>
+		<species>Pikachu</species>
+		<type>Electric</type>
+		<weight>6.0</weight>
+		<height>0.4</height>
+		<description>While sleeping, it generates electricity in the sacs in its cheeks. If it's not getting enough sleep, it will be able to use only weak electricity.</description>
+	</entry>
+    <entry>
+		<species>Raichu</species>
+		<type>Electric</type>
+		<weight>30.0</weight>
+		<height>0.8</height>
+		<description>As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity buildup is actually causing stress.</description>
+	</entry>
+    <entry>
+		<species>Alolan Raichu</species>
+		<type>Electric/Psychic</type>
+		<weight>21.0</weight>
+		<height>0.7</height>
+		<description>It uses psychokinesis to control electricity. It hops aboard its own tail, using psychic power to lift the tail and move about while riding it.</description>
+	</entry>
+</pokedex>
