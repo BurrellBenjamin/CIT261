@@ -53,6 +53,34 @@ function clearText(input){
                     document.getElementById("girl").checked = false;
                     break;
                 }
+            case 5:
+                {
+                    document.getElementById("teamOut").innerHTML = "You have not created any pokemon.";
+                    document.getElementById("Species").value = "";
+                    document.getElementById("Nick").value = "";
+                    document.getElementById("Type1").value = "";
+                    document.getElementById("Type2").value = "";
+                    document.getElementById("Item").value = "";
+                    document.getElementById("Ability").value = "";
+                    document.getElementById("Nature").value = "";
+                    document.getElementById("HP").value = "0";
+                    document.getElementById("Atk").value = "0";
+                    document.getElementById("Def").value = "0";
+                    document.getElementById("SpAtk").value = "0";
+                    document.getElementById("SpDef").value = "0";
+                    document.getElementById("Speed").value = "0";
+                    document.getElementById("Attack1").value = "";
+                    document.getElementById("Attack2").value = "";
+                    document.getElementById("Attack3").value = "";
+                    document.getElementById("Attack4").value = "";
+                    if (window.localStorage.getItem("team"))
+                        window.localStorage.removeItem("team");
+                    document.getElementById("saveButton").style.display = "inline";
+                    document.getElementById("stringForm").style.display = "inline";
+                    if (document.getElementById("error"))
+                        document.getElementById("error").style.display = "none";
+                    break;
+                }
         }
 }
 function MyPokemon(species, nick, type1, type2, ability){
@@ -203,4 +231,116 @@ function next(){
         index =0;
     }
     readDex(index);
+}
+function savePoke(){
+    var myPoke = new PokeImportable(document.getElementById("Species").value, document.getElementById("Nick").value, document.getElementById("Type1").value, document.getElementById("Type2").value, document.getElementById("Ability").value, document.getElementById("Item").value, document.getElementById("Nature").value, document.getElementById("HP").value, document.getElementById("Atk").value, document.getElementById("Def").value, document.getElementById("SpAtk").value, document.getElementById("SpDef").value, document.getElementById("Speed").value, document.getElementById("Attack1").value, document.getElementById("Attack2").value, document.getElementById("Attack3").value, document.getElementById("Attack4").value);
+    document.getElementById("Species").value = "";
+    document.getElementById("Nick").value = "";
+    document.getElementById("Type1").value = "";
+    document.getElementById("Type2").value = "";
+    document.getElementById("Item").value = "";
+    document.getElementById("Ability").value = "";
+    document.getElementById("Nature").value = "";
+    document.getElementById("HP").value = "0";
+    document.getElementById("Atk").value = "0";
+    document.getElementById("Def").value = "0";
+    document.getElementById("SpAtk").value = "0";
+    document.getElementById("SpDef").value = "0";
+    document.getElementById("Speed").value = "0";
+    document.getElementById("Attack1").value = "";
+    document.getElementById("Attack2").value = "";
+    document.getElementById("Attack3").value = "";
+    document.getElementById("Attack4").value = "";
+    var team = {"member1":"","member2":"","member3":"","member4":"","member5":"","member6":""};
+    if (window.localStorage.getItem("team")){
+        team = JSON.parse(window.localStorage.getItem("team"));
+        if (team["member1"] == ""){
+            team["member1"] = myPoke;
+        }
+        else if (team["member2"] == ""){
+            team["member2"] = myPoke;
+        }
+        else if (team["member3"] == ""){
+            team["member3"] = myPoke;
+        }
+        else if (team["member4"] == ""){
+            team["member4"] = myPoke;
+        }
+        else if (team["member5"] == ""){
+            team["member5"] = myPoke;
+        }
+        else if (team["member6"] == ""){
+            team["member6"] = myPoke;
+            document.getElementById("stringForm").style.display = "none";
+           document.getElementById("saveButton").style.display = "none";
+        }
+        else{
+            //in case of errors in loading teams
+            document.getElementById("stringForm").style.display = "none";
+            document.getElementById("saveButton").style.display = "none";
+            alert("ERROR: You already have 6 Team members.");
+        }
+        window.localStorage.setItem("team", JSON.stringify(team));
+    }
+    else{
+        team["member1"] = myPoke;
+        window.localStorage.setItem("team", JSON.stringify(team));
+    }
+    document.getElementById("teamOut").innerHTML = display(team);
+}
+function loadTeam(){
+    if (window.localStorage.getItem("team")){
+        var team = JSON.parse(window.localStorage.getItem("team"));
+        document.getElementById("teamOut").innerHTML = display(team);
+        if(team["member6"] != ""){
+            document.getElementById("stringForm").style.display = "none";
+            document.getElementById("saveButton").style.display = "none";
+        }
+    }
+    
+}
+function display(team){
+    var text = "You have not created any Pokemon";
+    var num;
+    var empty = true;
+    for(num=1;num<7;num++){
+        var index = "member"+num;
+        if(team[index] != "")
+            empty = false;
+    }
+    if(!empty){
+        text = "Your team:<br>";
+        for(num =1;num<7;num++){
+            var index = "member"+num;
+            if(team[index] != ""){
+                text+= "<div id=\"Pokemon" + num + "\">Pokemon "+num + "<pre>";
+                for(x in team[index]){    
+                    if(x == "evs" || x == "moves"){
+                        text+="     "+x+":<br>";
+                        for(y in team[index][x]){
+                            text+="        "+y+"- "+team[index][x][y]+"<br>";
+                        }
+                    }
+                    else
+                        text+= "     " + x +": "+ team[index][x] + "<br>";
+                }
+                text+="</pre><button type=\"button\" onclick=\"removePoke(" + num + ")\">Remove Pokemon "+num+"</button></div>";
+            }
+        
+        }
+    }
+    return text;
+}
+function removePoke(index){
+    var team = JSON.parse(window.localStorage.getItem("team"));
+    var backIndex =6;
+    while(team["member"+backIndex] == "" && backIndex<2){
+        backIndex--;
+    }
+    team["member"+index] = team["member"+backIndex].valueOf();
+    team["member6"] = "";
+    window.localStorage.setItem("team", JSON.stringify(team));
+    document.getElementById("teamOut").innerHTML = display(team);
+    document.getElementById("stringForm").style.display = "inline";
+    document.getElementById("saveButton").style.display = "inline";
 }

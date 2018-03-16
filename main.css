@@ -13,3 +13,8 @@ a {
 .navButtons{
     visibility:hidden;
 }
+
+#error{
+    color:white;
+    background-color: darkred;
+}

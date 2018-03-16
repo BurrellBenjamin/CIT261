@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>API Local Storage Demo</title>
+        <link rel="stylesheet" href="main.css">
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body onload="loadTeam()">
+        <div id="header" >
+            <p><a href="index.html">Home</a></p>
+            <h1>API Local Storage Demo</h1>
+            <br>
+            <p>This page demonstrates API local storage functionality in a 
+            variety of ways.</p>
+        </div>
+        <hr>
+        <div id="demo">
+            <p>API stands for Application Programming Interface, a powerful 
+            JavaScript tool for interacting with client-side information. One 
+            application of this is the aspect of local storage, which allows
+            a webpage to remember a user's preferences between sessions. Previously,
+            this was done via use of cookies, but now can be done through use 
+            of the JavaScript localStorage object. This data never expires, is 
+            never transferred to a remote server, and has a much larger size 
+            limit than cookies.</p>
+            <br>
+            <p>This example demonstrates a Pokemon teambuilder similar in function 
+            to Smogon University's Pokemon Showdown simulator. However rather 
+            than implementing a full imitation of Pokemon's battle mechanics, 
+            this demo is simply concerned with demonstrating teambuilding.</p>
+            <!--<p>There are 8 pre-designed sets that can be chosen between to 
+            create a team of 6 Pokemon.</p>-->
+            <div id="teambuilder">
+                <form id="stringForm">
+                <pre>Species Name:  <input type="text" id="Species">
+Nickname:      <input type="text" id="Nick">
+Typing:         <select id="Type1">
+                <option value="n/a"></option>
+                <option value="Bug">Bug</option>
+                <option value="Dark">Dark</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Electric">Electric</option>
+                <option value="Fairy">Fairy</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Fire">Fire</option>
+                <option value="Flying">Flying</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Grass">Grass</option>
+                <option value="Ground">Ground</option>
+                <option value="Ice">Ice</option>
+                <option value="Normal">Normal</option>
+                <option value="Poison">Poison</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Rock">Rock</option>
+                <option value="Steel">Steel</option>
+                <option value="Water">Water</option>
+            </select> <select id="Type2">
+                <option value="n/a"></option>
+                <option value="Bug">Bug</option>
+                <option value="Dark">Dark</option>
+                <option value="Dragon">Dragon</option>
+                <option value="Electric">Electric</option>
+                <option value="Fairy">Fairy</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Fire">Fire</option>
+                <option value="Flying">Flying</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Grass">Grass</option>
+                <option value="Ground">Ground</option>
+                <option value="Ice">Ice</option>
+                <option value="Normal">Normal</option>
+                <option value="Poison">Poison</option>
+                <option value="Psychic">Psychic</option>
+                <option value="Rock">Rock</option>
+                <option value="Steel">Steel</option>
+                <option value="Water">Water</option>
+            </select>
+Held Item:     <input type="text" id="Item">
+Ability:       <input type="text" id="Ability">
+Nature:               <select id="Nature">
+                    <option value=""></option>
+                    <option value="Adamant">Adamant</option>
+                    <option value="Bold">Bold</option>
+                    <option value="Brave">Brave</option>
+                    <option value="Calm">Calm</option>
+                    <option value="Careful">Careful</option>
+                    <option value="Gentle">Gentle</option>
+                    <option value="Hasty">Hasty</option>
+                    <option value="Impish">Impish</option>
+                    <option value="Jolly">Jolly</option>
+                    <option value="Lax">Lax</option>
+                    <option value="Lonely">Lonely</option>
+                    <option value="Mild">Mild</option>
+                    <option value="Modest">Modest</option>
+                    <option value="Naive">Naive</option>
+                    <option value="Naughty">Naughty</option>
+                    <option value="Quiet">Quiet</option>
+                    <option value="Rash">Rash</option>
+                    <option value="Relaxed">Relaxed</option>
+                    <option value="Sassy">Sassy</option>
+                    <option value="Timid">Timid</option>
+               </select>
+EV's:
+           HP- <input type="number" id="HP" value="0" min="0" max="252">
+       Attack- <input type="number" id="Atk" value="0" min="0" max="252">
+      Defense- <input type="number" id="Def" value="0" min="0" max="252">
+   Sp. Attack- <input type="number" id="SpAtk" value="0" min="0" max="252">
+  Sp. Defense- <input type="number" id="SpDef" value="0" min="0" max="252">
+        Speed- <input type="number" id="Speed" value="0" min="0" max="252">
+Attacks:
+            1- <input type="text" id="Attack1">
+            2- <input type="text" id="Attack2">
+            3- <input type="text" id="Attack3">
+            4- <input type="text" id="Attack4">
+                </pre>
+                </form>
+                <button type="button" id="saveButton" onclick="savePoke()">Save Pokemon</button>
+            </div>
+            <div id="teamOut">
+                You have not created any Pokemon.
+            </div>
+            <button type="button" onclick="clearText(5)">Clear All</button>
+        </div>
+        <hr>
+        <div id="footer">
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </body>
+</html>
