@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Events demo</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body onkeydown="movePC(event)">
+        <div id="header">
+            <p><a href="index.html">Home</a></p>
+            <h1>JavaScript Events demo</h1>
+            <p>JavaScript contains a wealth of event listeners, code that focuses
+            on listening for specific external input from the mouse or keyboard.
+            These events trigger things from button actions to image animations.
+            This particular demonstration allows you to view, and control, an
+            animated video game sprite. Once the button is clicked on, the sprite's
+            direction and position may be controlled with the arrow keys.</p>
+        </div>
+        <hr>
+        <div id="demo">
+            <button type="button" onclick="startDemo()" id="startButton">Start the Demo</button>
+            <canvas id="animate"></canvas>
+        </div>
+        <hr>
+        <script>
+            var canWidth = 300;
+            var canHeight = 300;
+            
+            var x=0;
+            var y=0;
+            
+            var trackDown = 0;
+            var trackUp = 1;
+            var trackLeft = 2;
+            var trackRight = 3;
+            
+            var srcX;
+            var srcY= 0;
+            
+            var sheetWidth = 100;
+            var sheetHeight = 122;
+            
+            var cols = 4;
+            var rows = 4;
+            
+            var width = sheetWidth / cols;
+            var height = sheetHeight/rows;
+
+            var currentFrame = -1;
+
+            var pcSprite = new Image();
+            pcSprite.src = "PokemonB2MalePCSpriteSheet.png";
+
+            var canvas = document.getElementById("animate");
+            canvas.width = canWidth;
+            canvas.height = canHeight;
+
+            var ctx = canvas.getContext('2d');
+            
+            function updateFrame(){
+                currentFrame = ++ currentFrame % cols;
+                
+                srcX = currentFrame * width;
+                ctx.clearRect(0, 0, canWidth, canHeight);
+            }
+            function drawimage(){
+                updateFrame();
+                ctx.drawImage(pcSprite, srcX, srcY, width, height, x, y, width, height);
+            }
+            function changeDirection(event){
+                var code= event.keyCode;
+                switch(code){
+                    case 37:{
+                        srcY = trackLeft * height;
+                        break;
+                    }
+                    case 38:{
+                        srcY = trackUp * height;
+                        break;
+                    }
+                    case 39:{
+                        srcY = trackRight * height;
+                        break;
+                    }
+                    case 40:{
+                        srcY = trackDown * height;
+                        break;
+                    }
+                    default:{
+                        break;
+                    }
+                }
+            }
+            function movePC(event){
+                if(document.getElementById("animate").style.display != "none"){
+                    changeDirection(event);
+                    var code= event.keyCode;
+                    switch(code){
+                        case 37:{
+                            if(x!=0)
+                                x-=5;
+                            drawimage();
+                            window.setTimeout(drawimage, 200)
+                            break;
+                        }
+                        case 38:{
+                            if(y!=0)
+                                y-=5;
+                            drawimage();
+                            setTimeout(drawimage, 200);
+                            break;
+                        }
+                        case 39:{
+                            if (x!=275)
+                                x+=5;
+                            drawimage();
+                            setTimeout(drawimage, 200);
+                            break;
+                        }
+                        case 40:{
+                            if (y!=270)
+                                y+=5;
+                            drawimage();
+                            setTimeout(drawimage, 200);
+                            break;
+                        }
+                        default:{
+                            break;
+                        }
+                    }
+                }
+            }
+            function startDemo(){
+                drawimage();
+                document.getElementById("startButton").style.display = "none";
+                document.getElementById("animate").style.display = "inline";
+            }
+        </script>
+    </body>
+</html>

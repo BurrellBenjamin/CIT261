@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>HTML5 Demo</title>
+        <link rel="stylesheet" href="main.css">
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <p><a href="index.html">Home</a></p>
+            <h1>HTML5 demo</h1>
+            <br>
+            <p>HTML5 is the latest W3C recommended version, and this demo focuses
+            on the video and audio elements</p>
+        </div>
+        <hr>
+        <div id="videoDemo">
+            <h3>Video demo</h3>
+            <p>This demo shows off the two methods of embedding videos in HTML.
+            The first of these is the video tag, and the second method uses the
+            iframe tag to share Youtube videos.</p>
+            <br>
+            <h5>Video Tag</h5>
+            <video width="400" controls>
+                <source src="videoplayback.mp4" type="video/mp4">
+            </video>
+            <br>
+            <h5>YouTube Inclusion</h5>
+            <iframe width="420" height="345" src="https://www.youtube.com/embed/k9tgLnI0fFc" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <div id="audioDemo">
+            <h3>Audio demo</h3>
+            <br>
+            <p>This demo shows off the audio tag, playing the song Flaws by Bastille.
+            If a browser reaches this page but cannot parse the audio tag, the
+            browser will instead display the plain text inside.</p>
+            <br>
+            <audio controls>
+                <source src="09%20Flaws.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <hr>
+        <div id="footer">
+            <p><a href="index.html">Home</a></p>
+        </div>
+    </body>
+</html>

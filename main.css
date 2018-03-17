@@ -18,3 +18,9 @@ a {
     color:white;
     background-color: darkred;
 }
+
+#animate {
+    position: relative;
+    outline: darkgreen solid;
+    display: none;
+}

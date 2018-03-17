@@ -55,7 +55,7 @@ function clearText(input){
                 }
             case 5:
                 {
-                    document.getElementById("teamOut").innerHTML = "You have not created any Pokemon.";
+                    document.getElementById("teamOut").innerHTML = "You have not created any pokemon.";
                     document.getElementById("Species").value = "";
                     document.getElementById("Nick").value = "";
                     document.getElementById("Type1").value = "";
