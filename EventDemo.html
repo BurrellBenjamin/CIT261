@@ -23,6 +23,7 @@
         </div>
         <hr>
         <script>
+            var timer;
             var canWidth = 300;
             var canHeight = 300;
             
@@ -95,33 +96,34 @@
                 if(document.getElementById("animate").style.display != "none"){
                     changeDirection(event);
                     var code= event.keyCode;
+                    window.clearTimeout(timer);
                     switch(code){
                         case 37:{
                             if(x!=0)
                                 x-=5;
                             drawimage();
-                            window.setTimeout(drawimage, 200)
+                            timer = window.setTimeout(drawimage, 200)
                             break;
                         }
                         case 38:{
                             if(y!=0)
                                 y-=5;
                             drawimage();
-                            setTimeout(drawimage, 200);
+                            timer = setTimeout(drawimage, 200);
                             break;
                         }
                         case 39:{
                             if (x!=275)
                                 x+=5;
                             drawimage();
-                            setTimeout(drawimage, 200);
+                            timer = setTimeout(drawimage, 200);
                             break;
                         }
                         case 40:{
                             if (y!=270)
                                 y+=5;
                             drawimage();
-                            setTimeout(drawimage, 200);
+                            timer = setTimeout(drawimage, 200);
                             break;
                         }
                         default:{
