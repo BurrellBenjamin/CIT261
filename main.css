@@ -24,3 +24,41 @@ a {
     outline: darkgreen solid;
     display: none;
 }
+.CSSmanip{
+    display:none;
+}
+.element0{
+    background-color: aqua;
+    width:50px;
+    height:50px;
+    transition: background-color 4s;
+}
+.element1{
+    background-color: orange;
+    width:50px;
+    height:50px;
+    transform: translateX(0px);
+    transition: transform 4s;
+}
+@keyframes example {
+    0% {background-color: purple; }
+    20% {height:75px}
+    40% {width:75px;}
+    60% {height:90px;}
+    80% {width:90px}
+    100% {background-color: yellowgreen; width:100px; height:100px}
+}
+@keyframes inverseexample{
+    0% {background-color: yellowgreen; width:100px; height:100px}
+    20% {width:90px}
+    40% {height:90px;}
+    60% {width:75px;}
+    80% {height:75px}
+    100% {background-color: purple; }
+}
+.element2{
+    background-color:purple;
+    width:50px;
+    height:50px;
+    animation: none;
+}

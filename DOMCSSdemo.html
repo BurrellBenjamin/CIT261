@@ -12,13 +12,33 @@
             <h1>Manipulating DOM and CSS with JavaScript</h1>
         </div>
         <hr>
-        <div id="demo">
+        <div id="DOMmanip">
+            <h3>DOM manipulation</h3>
             <p>While other demonstrations of mine have made use of DOM manipulation via
             JavaScript, none have used the methods specifically designed for this.
             createElement, appendChild, InsertBefore, removeChild are some of
-            the methods that fulfill this purpose</p>
+            the methods that fulfill this purpose.</p>
+            <p>This section demonstrates createElement, appendChild, and 
+            removeChild. Once the 'Start Demo' Button has been pressed, a new
+            div element will be appear, from which you can add and remove child 
+            nodes via the appropriately-labelled buttons. Creating at least one child node is necessary to perform the
+            CSS manipulation demo.</p>
+            <button type="button" onclick="DOMdemo()" id="startDemo">Start Demo</button>
         </div>
         <hr>
+        <div class="CSSmanip">
+            <h3>CSS Manipulation</h3>
+            <p>This section of the demonstration deals with implementing CSS 
+            transforms, transitions, and animations on the spawned child nodes.</p>
+            <p>Each button will generate a specific action on one of the child nodes,
+            and will only modify specific child nodes. Thus, to achieve all 3 
+            demonstrations, you'll need to add a minimum of 3 nodes.</p>
+            <p>Further, a button will not appear unless it has a valid target.</p>
+            <button type="button" class="CSSmanip" onclick="CSStransition()" id="transition">Trigger CSS Transition</button><br>
+            <button type="button" class="CSSmanip" onclick="CSStransform()" id="transform">Trigger CSS Transform</button><br>
+            <button id="animation" type="button" class="CSSmanip" onclick="CSSanimate()">Trigger CSS Animation</button><br>
+        </div>
+        <hr class="CSSmanip">
         <div id="footer">
             <p><a href="index.html">Home</a></p>
         </div>

@@ -344,3 +344,91 @@ function removePoke(index){
     document.getElementById("stringForm").style.display = "inline";
     document.getElementById("saveButton").style.display = "inline";
 }
+function DOMdemo(){
+    document.getElementsByClassName("CSSmanip")[0].style.display = "inline";
+    document.getElementsByClassName("CSSmanip")[4].style.display = "block";
+    document.getElementById("startDemo").style.display = "none";
+    var btn = document.createElement("BUTTON");
+    var removeBtn = document.createElement("BUTTON");
+    btn.appendChild(document.createTextNode("Create Element"));
+    removeBtn.appendChild(document.createTextNode("Remove Element"));
+    btn.addEventListener("click", runDemo);
+    removeBtn.addEventListener("click", eraseDivs);
+    btn.attributes.type = "BUTTON";
+    removeBtn.attributes.type = "BUTTON";
+    btn.id = "demoButton";
+    removeBtn.id = "removeButton";
+    document.body.insertBefore(btn, document.body.childNodes[10]);
+    document.body.insertBefore(removeBtn, document.body.childNodes[11]);
+}
+var eleCount = 0;
+function runDemo(){
+    var classLabel = "element" + eleCount % 3;
+    var newDiv = document.createElement("DIV");
+    newDiv.setAttribute("class", classLabel);
+    document.getElementsByClassName("CSSmanip")[0].appendChild(newDiv);
+    eleCount++;
+    if (eleCount == 1){
+        document.getElementsByClassName("CSSmanip")[1].style.display = "inline";
+    }
+    else if (eleCount == 2){
+        document.getElementsByClassName("CSSmanip")[2].style.display = "inline";
+    }
+    else if (eleCount % 3 == 0){
+        document.getElementsByClassName("CSSmanip")[3].style.display = "inline";
+    }
+}
+function eraseDivs(){
+    
+    document.getElementsByClassName("CSSmanip")[0].removeChild(document.getElementsByClassName("CSSmanip")[0].childNodes[18 + eleCount - 1]);
+    eleCount--;
+    if (eleCount < 1){
+        document.getElementsByClassName("CSSmanip")[1].style.display = "none";
+        eleCount = 0;
+    }
+    else if (eleCount < 2){
+        document.getElementsByClassName("CSSmanip")[2].style.display = "none";
+    }
+    else if (eleCount < 3){
+        document.getElementsByClassName("CSSmanip")[3].style.display = "none";
+    }
+}
+var zeroElements=0;
+var oneElements=0;
+var twoElements=0;
+function CSStransition(){
+    if (document.getElementsByClassName("element0")[zeroElements].style.backgroundColor == "aqua"){
+        document.getElementsByClassName("element0")[zeroElements].style.backgroundColor = "red";
+    }
+    else if( document.getElementsByClassName("element0")[zeroElements].style.backgroundColor == "red"){
+        document.getElementsByClassName("element0")[zeroElements].style.backgroundColor = "aqua";
+    }
+    else{
+        document.getElementsByClassName("element0")[zeroElements].style.backgroundColor = "red"
+    }
+    zeroElements++;
+    zeroElements = zeroElements % document.getElementsByClassName("element0").length;
+}
+function CSStransform(){
+    if (oneElements % 2 == 0){
+        document.getElementsByClassName("element1")[oneElements / 2].style.transform = "translateX(200px)";
+    }
+    else{
+        document.getElementsByClassName("element1")[Math.floor(oneElements / 2)].style.transform = "translateX(0px)";
+    }
+    oneElements++;
+    oneElements = oneElements % (document.getElementsByClassName("element1").length * 2);
+}
+function CSSanimate(){
+    
+    if(document.getElementsByClassName("element2")[twoElements].style.animation == "inverseexample 4s 0s 1 normal forwards"){
+        document.getElementsByClassName("element2")[twoElements].style.animation = "example 4s 0s 1 normal forwards";
+    }
+    else if (document.getElementsByClassName("element2")[twoElements].style.animation == "example 4s 0s 1 normal forwards"){
+        document.getElementsByClassName("element2")[twoElements].style.animation = "inverseexample 4s 0s 1 normal forwards";
+    }
+    else 
+        document.getElementsByClassName("element2")[twoElements].style.animation = "example 4s 0s 1 normal forwards";
+    twoElements++;
+    twoElements = twoElements % document.getElementsByClassName("element2").length;
+}
